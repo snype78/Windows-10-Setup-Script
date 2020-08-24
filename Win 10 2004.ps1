@@ -364,11 +364,11 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # Show hidden files, folders, and drives
 # Показывать скрытые файлы, папки и диски
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name Hidden -PropertyType DWord -Value 1 -Force
+# New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name Hidden -PropertyType DWord -Value 1 -Force
 
 # Show file name extensions
 # Показывать расширения для зарегистрированных типов файлов
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -PropertyType DWord -Value 0 -Force
+# New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name HideFileExt -PropertyType DWord -Value 0 -Force
 
 # Do not hide folder merge conflicts
 # Не скрывать конфликт слияния папок
@@ -404,7 +404,7 @@ New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\
 
 # Show seconds on taskbar clock
 # Отображать секунды в системных часах на панели задач
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowSecondsInSystemClock -PropertyType DWord -Value 1 -Force
+# New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced -Name ShowSecondsInSystemClock -PropertyType DWord -Value 1 -Force
 
 # Do not show when snapping a window, what can be attached next to it
 # Не показывать при прикреплении окна, что можно прикрепить рядом с ним
@@ -433,9 +433,9 @@ Function [WinAPI.UpdateExplorer]::PostMessage() call required at the end
 Запрашивать подтверждение на удаление файлов в корзину
 В конце необходим вызов функции [WinAPI.UpdateExplorer]::PostMessage()
 #>
-$ShellState = Get-ItemPropertyValue -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer -Name ShellState
-$ShellState[4] = 51
-New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer -Name ShellState -PropertyType Binary -Value $ShellState -Force
+# $ShellState = Get-ItemPropertyValue -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer -Name ShellState
+# $ShellState[4] = 51
+# New-ItemProperty -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer -Name ShellState -PropertyType Binary -Value $ShellState -Force
 
 # Hide 3D Objects folder from "This PC" and from Quick access
 # Скрыть папку "Объемные объекты" из "Этот компьютер" и из панели быстрого доступа
@@ -3354,7 +3354,7 @@ New-ItemProperty -Path "Registry::HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHa
 
 # Hide the "Send to" item from the folders context menu
 # Скрыть пункт "Отправить" из контекстного меню папок
-New-ItemProperty -Path Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo -Name "(Default)" -PropertyType String -Value "-{7BA4C740-9E81-11CF-99D3-00AA004AE837}" -Force
+# New-ItemProperty -Path Registry::HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo -Name "(Default)" -PropertyType String -Value "-{7BA4C740-9E81-11CF-99D3-00AA004AE837}" -Force
 
 # Hide the "Turn on BitLocker" item from the context menu
 # Скрыть пункт "Включить BitLocker" из контекстного меню
